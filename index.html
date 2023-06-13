@@ -5,7 +5,19 @@
 </head>
 <body>
   <!-- Your HTML content here -->
+   <h1>Da Rules</h1>
+   <p>A simple Rock-Paper-Scissors game. Check the console to play!</p>
 
-  <script src="script.js"></script>
+  <script>
+
+        function getComputerChoice() {
+            var randomNumber = Math.floor(Math.random()* 3);
+            return randomNumber;
+        }
+
+        var result = getComputerChoice();
+        console.log(result);
+
+  </script>
 </body>
 </html>
