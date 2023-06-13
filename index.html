@@ -10,12 +10,25 @@
 
   <script>
 
+        //Function creates a random number between 0 and 1, multiplies it by 3, then rounds it down to the nearest full number (either 0, 1 or 2 - 2.99 rounds to 2)
         function getComputerChoice() {
-            var randomNumber = Math.floor(Math.random()* 3);
-            return randomNumber;
+            var num = Math.floor(Math.random()* 3);
+
+            if (num == 0) {
+              var ans = "Rock";
+            } else if (num == 1) {
+              var ans = "Paper";
+            } else {
+              var ans = "Scissors";
+            }
+
+            return ans;
         }
 
         var result = getComputerChoice();
+
+        
+
         console.log(result);
 
   </script>
