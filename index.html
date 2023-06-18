@@ -11,6 +11,7 @@
   <script>
 
         //Function creates a random number between 0 and 1, multiplies it by 3, then rounds it down to the nearest full number (either 0, 1 or 2 - 2.99 rounds to 2)
+        //It then assigns the randomly generated number to an index of 'choices' and then return the value at that index (either Rock, Paper or Scissors) - this is the computer's choice
         function getComputerChoice() {
             
           var choices = ["Rock", "Paper", "Scissors"];
@@ -20,10 +21,30 @@
         
         }
 
-        var result = getComputerChoice();       
+        //The variable is determined by the function 'getComputerChoice'
+        var computerSelection = getComputerChoice();
+        console.log(computerSelection);
 
-        console.log(result);
+        function playRound() {
+          //Takes playerSelection (case DOESN'T matter) and compares to computerSelection
+          
+          //Create a new variable to contain the output message for the round
+          var whoWon;
+          if (playerSelection == "Rock") {
+            if (computerSelection == "Rock") {
+              whoWon = "It's a draw!";
+            } else if (computerSelection == "Scissors") {
+              whoWon = "You win!";
+            } else {
+              whoWon = "You lose!";
+            } 
+          }
+          return whoWon;
+        }
 
+        const playerSelection = "Rock";
+        console.log(playRound());
+    
   </script>
 </body>
 </html>
