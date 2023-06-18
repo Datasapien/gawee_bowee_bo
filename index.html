@@ -7,44 +7,36 @@
   <!-- Your HTML content here -->
    <h1>Da Rules</h1>
    <p>A simple Rock-Paper-Scissors game. Check the console to play!</p>
+   <input type="text" id="playerSelection">
+   <button onclick="playRound()">Submit</button>
 
   <script>
 
-        //Function creates a random number between 0 and 1, multiplies it by 3, then rounds it down to the nearest full number (either 0, 1 or 2 - 2.99 rounds to 2)
-        //It then assigns the randomly generated number to an index of 'choices' and then return the value at that index (either Rock, Paper or Scissors) - this is the computer's choice
-        function getComputerChoice() {
-            
-          var choices = ["Rock", "Paper", "Scissors"];
-          var randomIndex = Math.floor(Math.random() * choices.length);
+function getRandomChoice() {
+      var choices = ["Rock", "Paper", "Scissors"];
+      var randomIndex = Math.floor(Math.random() * choices.length); //Creates a random number between 0 and 2 which is then assigned as the index for the choices array
+      return choices[randomIndex];
+    }
 
-          return choices[randomIndex];
-        
-        }
+    function playRound() {
+      var inputBox = document.getElementById("playerSelection");
+      var playerSelection = inputBox.value.toLowerCase(); // Convert user input to lowercase for case-insensitive comparison
+      var computerSelection = getRandomChoice();
 
-        //The variable is determined by the function 'getComputerChoice'
-        var computerSelection = getComputerChoice();
-        console.log(computerSelection);
+      console.log(computerSelection);
 
-        function playRound() {
-          //Takes playerSelection (case DOESN'T matter) and compares to computerSelection
-          
-          //Create a new variable to contain the output message for the round
-          var whoWon;
-          if (playerSelection == "Rock") {
-            if (computerSelection == "Rock") {
-              whoWon = "It's a draw!";
-            } else if (computerSelection == "Scissors") {
-              whoWon = "You win!";
-            } else {
-              whoWon = "You lose!";
-            } 
-          }
-          return whoWon;
-        }
-
-        const playerSelection = "Rock";
-        console.log(playRound());
-    
+      if (playerSelection === computerSelection.toLowerCase()) {
+        console.log("It's a draw!");
+      } else if (
+        (playerSelection === "rock" && computerSelection === "Scissors") ||
+        (playerSelection === "paper" && computerSelection === "Rock") ||
+        (playerSelection === "scissors" && computerSelection === "Paper")
+      ) {
+        console.log("You win!");
+      } else {
+        console.log("You lose!");
+      }
+    }
   </script>
 </body>
 </html>
