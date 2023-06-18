@@ -7,8 +7,6 @@
   <!-- Your HTML content here -->
    <h1>Da Rules</h1>
    <p>A simple Rock-Paper-Scissors game. Check the console to play!</p>
-   <input type="text" id="playerSelection">
-   <button onclick="playRound()">Submit</button>
 
   <script>
 
@@ -19,8 +17,11 @@ function getRandomChoice() {
     }
 
     function playRound() {
-      var inputBox = document.getElementById("playerSelection");
-      var playerSelection = inputBox.value.toLowerCase(); // Convert user input to lowercase for case-insensitive comparison
+
+      var playerSelection = prompt("Enter your choice for a game of Rock-Paper-Scissors!");
+      //shorthand conditional statement that converts the user input into lower case for a case-insensitive comparison
+      playerSelection = playerSelection ? playerSelection.toLowerCase(): "";
+
       var computerSelection = getRandomChoice();
 
       console.log(computerSelection);
